@@ -1,0 +1,109 @@
+{
+  "products": [
+  {
+    "id": 1,
+    "name": "Acer Predator Helios 300",
+    "category": "Laptop",
+    "price": 1199.99,
+    "image": "https://m.media-amazon.com/images/I/51pSUPZlMSL._AC_SX679_.jpg"
+  },
+  {
+    "id": 2,
+    "name": "ASUS ROG Strix G15 Gaming Laptop",
+    "category": "Laptop",
+    "price": 1349.00,
+    "image": "https://m.media-amazon.com/images/I/71XjR4aStpL._AC_SX679_.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Dell XPS 13",
+    "category": "Laptop",
+    "price": 999.99,
+    "image": "https://tech.co.za/wp-content/uploads/2024/11/XPS-13-9345-Platinumb.jpg"
+  },
+  {
+    "id": 4,
+    "name": "CyberPowerPC Gamer Xtreme VR",
+    "category": "Gaming PC",
+    "price": 1599.00,
+    "image": "https://m.media-amazon.com/images/I/71niM8ydWFL._AC_SX679_.jpg"
+  },
+  {
+    "id": 5,
+    "name": "NZXT Player: One Custom PC",
+    "category": "Gaming PC",
+    "price": 1799.99,
+    "image": "https://m.media-amazon.com/images/I/71gu2Qd54tL._AC_SY879_.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Logitech G Pro X Gaming Headset",
+    "category": "Accessory",
+    "price": 129.99,
+    "image": "https://resource.logitechg.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-2-lightspeed/gallery/gallery-1-pro-x-2-lightspeed-gaming-headset-black.png"
+  },
+  {
+    "id": 7,
+    "name": "Corsair K95 RGB Mechanical Keyboard",
+    "category": "Accessory",
+    "price": 199.99,
+    "image": "https://www.wootware.co.za/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/j/k/jkdujgfdhhd_1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Razer DeathAdder V3 Pro Mouse",
+    "category": "Accessory",
+    "price": 149.99,
+    "image": "https://m.media-amazon.com/images/I/61AcT0ZuO3L._AC_SX522_.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Xbox Series X Controller",
+    "category": "Controller",
+    "price": 59.99,
+    "image": "https://www.incredible.co.za/api/catalog/product/x/b/xbox2020_cntlr_blck_frnt_v2_rgb_e_commerce_a1d9.jpg?store=incredibleconnection&image-type=image"
+  },
+  {
+    "id": 10,
+    "name": "PlayStation DualSense Wireless Controller",
+    "category": "Controller",
+    "price": 69.99,
+    "image": "https://www.incredible.co.za/api/catalog/product/8/2/82911_sy_dualsense_01_layered_8_cmyk_1_siea_ecommerce_4dfd.png?width=700&height=700&store=incredibleconnection&image-type=image"
+  },
+  {
+    "id": 11,
+    "name": "SteelSeries Arctis Nova 7 Headset",
+    "category": "Accessory",
+    "price": 179.99,
+    "image": "https://computermania.co.za/cdn/shop/files/61553.1.jpg?v=1713192689"
+  },
+  {
+    "id": 12,
+    "name": "Apple MacBook Air M2",
+    "category": "Laptop",
+    "price": 1249.00,
+    "image": "https://www.incredible.co.za/api/catalog/product/m/a/macbook_air_m2_chip_midnight_pure_front_print__usen_ecommerce_7a77.png?store=incredibleconnection&image-type=image"
+  },
+  {
+    "id": 13,
+    "name": "MSI Trident 3 Compact Gaming PC",
+    "category": "Gaming PC",
+    "price": 1399.00,
+    "image": "https://cdn.cs.1worldsync.com/5c/1f/5c1f78ab-b198-4892-93ff-33dff55a3758.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Elgato Stream Deck MK.2",
+    "category": "Accessory",
+    "price": 149.99,
+    "image": "https://m.media-amazon.com/images/I/51jSapFsaWL.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Samsung Odyssey G7 27\" Gaming Monitor",
+    "category": "Accessory",
+    "price": 699.99,
+    "image": "https://www.wootware.co.za/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/a/samsung-lc32g75tqsexxs-01.jpg"
+  }
+]
+}

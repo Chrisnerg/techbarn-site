@@ -1,26 +1,28 @@
+import { Link } from "react-router-dom"
+
 const Categories = () => {
   return (
-    <div className="bg-gray-300 shadow-md rounded-md mx-1">
-        <div className="flex justify-around">
-            <div className="">
-                <a href='#'>
+    <div className="bg-gray-300 shadow-md h-10 rounded-md mx-1 border-b mb-2">
+        <div className="flex justify-around h-fit text-center pt-2">
+            <div className=" text-center  hover:border-2 border-black rounded-sm w-fit h-fit px-1 py-1">
+                <Link to='/components'>
                     All Components
-                </a>
+                </Link>
             </div>
-            <div className="">
-                <a href='#'>
+            <div className="hover:border-2 border-black rounded-sm w-fit h-fit px-1 py-1">
+                <Link to='/laptops'>
                     Laptops
-                </a>
+                </Link>
             </div>
-            <div>
-                <a href='#'>
+            <div className="hover:border-2 border-black rounded-sm w-fit h-fit px-1 py-1">
+                <Link to='/newarrivals'>
                     New Arrivals
-                </a>
+                </Link>
             </div>
-            <div>
-                <a href='#'>
+            <div className="hover:border-2 border-black rounded-sm w-fit h-fit px-1 py-1">
+                <Link to='gamingaccesories'>
                     Gaming Accesories
-                </a>
+                </Link>
             </div>
         </div>
     </div>
