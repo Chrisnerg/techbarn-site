@@ -12,10 +12,7 @@ const ProductsPage = () => {
         </div>
         <Products browse="Shop Our Quality Products"  true/>
     </div>
-
     </>
-    
-
   )
 }
 

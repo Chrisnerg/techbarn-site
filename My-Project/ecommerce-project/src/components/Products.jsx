@@ -6,7 +6,7 @@ const Products = ({ browse = "Browse Our Products", isHome = false }) => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const apiUrl = isHome ? "/api/products?_limit=3" : "/api/products";
+  const apiUrl = isHome ? "/api/products?_limit=6" : "/api/products";
 
   useEffect(() => {
     const fetchProdructs = async () => {
@@ -20,7 +20,6 @@ const Products = ({ browse = "Browse Our Products", isHome = false }) => {
         setLoading(false);
       }
     }
-
     fetchProdructs();
   }, [])
 

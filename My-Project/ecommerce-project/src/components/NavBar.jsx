@@ -7,6 +7,7 @@ const NavBar = () => {
     const linkClass = ( {isActive} ) => {
       return  isActive ? "bg-black rounded-md w-fit h-fit px-2 py-2" : "hover:bg-gray-900 rounded-md w-fit h-fit px-2 py-2"
     }
+    
   return (
     <div className="bg-indigo-700 h-30 w-full flex justify-between border-b">
         <div className="pl-2 py-1 flex">
