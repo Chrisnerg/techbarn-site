@@ -1,46 +1,31 @@
-import logo from "../assets/images/logo.png"
-import { Link } from "react-router-dom"
-import { NavLink } from "react-router-dom"
+import NavBarLoggedOut from "./NavBarLoggedOut"
+import NavBarUser from "./NavBarUser"
+import NavBarAdmin from "./NavBarAdmin"
+import { useContext } from "react"
+import { userContext } from "../context/UserContext"
 
 const NavBar = () => {
+    const { user } = useContext(userContext);
 
-    const linkClass = ( {isActive} ) => {
-      return  isActive ? "bg-black rounded-md w-fit h-fit px-2 py-2" : "hover:bg-gray-900 rounded-md w-fit h-fit px-2 py-2"
+    const renderLogin = () => {
+        // Check if user exists before accessing its properties
+        if(!user) {
+            return <NavBarLoggedOut />;
+        }
+
+        if(user.role === 'user' && user.active === true)
+        {
+            return <NavBarUser />;
+        } else if(user.role === 'admin' && user.active === true)
+        {
+            return <NavBarAdmin />;
+        } else {
+            return <NavBarLoggedOut />;
+        }
     }
-    
   return (
-    <div className="bg-indigo-700 h-30 w-full flex justify-between border-b">
-        <div className="pl-2 py-1 flex">
-            <NavLink to="/">
-                <img
-                className="h-10 w-auto"
-                src={logo}
-                alt="TechBarn logo"
-            />
-            </NavLink>
-            <NavLink to="/">
-                <div className="font-bold text-white pt-2 pl-1">TechBarn</div>
-            </NavLink>
-        </div>
-        <div className="flex py-2 text-white space-x-2">
-            <div>
-                <NavLink to="/login" className={linkClass}>
-                    Login
-                </NavLink>
-                
-            </div>
-            <div>
-                <NavLink to="/register" className={linkClass}>
-                    Register
-                </NavLink>
-            </div>
-            <div className="pr-2">
-                <NavLink to="/about" className={linkClass}>
-                    About
-                </NavLink>
-                
-            </div>
-        </div>
+    <div className=''>
+        {renderLogin()}
     </div>
   )
 }
