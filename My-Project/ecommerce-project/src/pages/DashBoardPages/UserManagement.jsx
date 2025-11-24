@@ -1,11 +1,15 @@
 import { GrFormView } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CiUser } from "react-icons/ci";
+import { IoCloseSharp } from "react-icons/io5";
 
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
     const [orders, setOrders] = useState([]);
     const [userStatus, setUserStatus] = useState("");
+    const [popUp, setPopUp] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -106,6 +110,7 @@ const UserManagement = () => {
                                 <tr
                                     key={user.id}
                                     className="border-b border-gray-200 hover:bg-gray-50 transition"
+                                    
                                 >
                                     <td className="py-3 px-4 font-medium text-slate-900">{user.id}</td>
                                     <td className="py-3 px-4 text-slate-900">{user.email}</td>
@@ -123,7 +128,10 @@ const UserManagement = () => {
                                     {/* <td className="py-3 px-4 text-slate-900">{user.joined}</td> */}
 
                                     <td className="py-3 px-8 text-slate-900">
-                                        <Link to="#">
+                                        <Link to="#" onClick={(e) => {
+                                        setPopUp(true);
+                                        setSelectedUser(user);
+                                    }}>
                                             <GrFormView className="text-2xl" />
                                         </Link>
                                     </td>
@@ -133,6 +141,48 @@ const UserManagement = () => {
                     </table>
                 </div>
             </div>
+
+            {/* Pop-up Product Info */}
+            {popUp && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+
+                    {/* Outer Popup Box (Wider) */}
+                    <div className="bg-white py-6 px-8 mx-24 rounded-xl shadow-xl w-[800px] h-4/5 overflow-y-auto relative">
+
+                        {/* Inner Content Container (Fixed width) */}
+                        <div className="max-w-[450px] mx-auto">
+
+                            {/* Close Button */}
+                            <div className="flex justify-between items-center bg-white py-2">
+                                <p className="text-2xl font-bold text-gray-700">User Details</p>
+                                <button onClick={() => setPopUp(false)}>
+                                    <IoCloseSharp className="text-3xl hover:text-red-500" />
+                                </button>
+                            </div>
+
+                            <CiUser className="text-9xl ml-40"/>
+
+                            {/* Inputs */}
+                            <div className="mt-6">
+                                <p className="pb-1">User ID:</p>
+                                <input className="border rounded w-full py-2 px-3 mb-3" value={selectedUser.id} readOnly/>
+
+                                <p className="pb-1">User name:</p>
+                                <input className="border rounded w-full py-2 px-3 mb-3" value={selectedUser.name} readOnly/>
+
+                                <p className="pb-1">User surname:</p>
+                                <input className="border rounded w-full py-2 px-3 mb-3" value={selectedUser.surname} readOnly/>
+
+                                <p className="pb-1">User Email:</p>
+                                <input className="border rounded w-full py-2 px-3 mb-3" value={selectedUser.email} readOnly/>
+
+                                <p className="pb-1">User orders:</p>
+                                <input className="border rounded w-full py-2 px-3 mb-3" value={selectedUser?.order?.length ?? 0} readOnly/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 

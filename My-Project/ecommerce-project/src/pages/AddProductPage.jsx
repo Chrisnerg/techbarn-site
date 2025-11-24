@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -12,6 +12,7 @@ const AddProductPage = ({ addProduct }) => {
     const [description, setDescription] = useState('');
     const [stock, setStock] = useState(0);
     const [image, setImage] = useState(null);
+    const [url, setUrl] = useState(null);
 
     const submitForm = (e) => {
 
@@ -33,8 +34,16 @@ const AddProductPage = ({ addProduct }) => {
     const file = e.target.files[0];
     if (file) {
       setImage(URL.createObjectURL(file));
+    } else if(url) {
+        setImage(url);
     }
   };
+
+  useEffect(() => {
+    if (url && !image) { // Only set image from URL if no file is selected
+        setImage(url);
+    }
+    }, [url]);
 
     return (
         <div className='bg-indigo-100 w-4/5 min-h-screen pb-24 '>
@@ -87,7 +96,7 @@ const AddProductPage = ({ addProduct }) => {
                         </div>
 
                         <div className='mb-4'>
-                            <p className='py-2 block text-gray-700 font-bold mb-2'>Stock:</p>
+                            <p className='py-2 block text-gray-700 font-bold mb-2'>Stock</p>
                             <input
                                 placeholder='e.g 0'
                                 type="text"
@@ -107,6 +116,16 @@ const AddProductPage = ({ addProduct }) => {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 required></textarea>
+                        </div>
+
+                        <div className='mb-4'>
+                            <label htmlFor='Description' className='block text-gray-700 font-bold mb-2'>Product URL</label>
+                            <input
+                                placeholder='e.g https://image'
+                                type="text"
+                                className='border rounded w-full py-2 px-3'
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)} />
                         </div>
 
                         {/* Image Upload */}

@@ -22,7 +22,7 @@ const SideBar = () => {
 
     return (
         <>
-            <div className='bg-gray-50 w-1/5 max-h-screen min-h-screen pb-24 shadow-xl border border-gray-300 pr-4'>
+            <div className='bg-gray-50 w-1/5 max-h-screen min-h-screen pb-24 shadow-xl border border-gray-300 pr-4 sticky top-0'>
 
                 <div className="flex justify-center  pt-4 mb-1">
                     <FaRegCircleUser className="text-4xl" />

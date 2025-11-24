@@ -1,15 +1,39 @@
 import { FaArrowLeft } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { useParams, useLoaderData } from "react-router-dom"
+import { MdAddShoppingCart } from "react-icons/md";
+import { userContext } from "../context/UserContext";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const ProductPage = () => {
   const { id } = useParams();
+  const { user,setUser  } = useContext(userContext);
 
   /* useLoaderData() returns data from the nearest/closest route loader */
   const product = useLoaderData();
+
+  const addToCart = async () => {
+  
+          if(!user) return;
+  
+           // Create updated orders array
+          const updatedOrders = [...user.order, product.id];
+  
+          await fetch(`/api/users/${product.id}`, {
+              method: 'PATCH',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ order: updatedOrders})
+          });
+  
+          setUser({ ...user, order: updatedOrders });
+          toast.success('Order Added')
+      }
+
   return (
     <>
-
       <Link
         to='/products'
         className="hover:text-indigo-900 flex items-center pt-4">
@@ -22,23 +46,26 @@ const ProductPage = () => {
           <div className="bg-white ml-6 rounded-md shadow-lg p-4 w-4/5">
             <img
               className="max-w-sm w-full h-auto mx-auto pl-3 pt-6 object-contain rounded-lg"
-              src={product.image}
-            />
+              src={product.image}/>
 
             <div className="flex">
               <h1 className="text-xl pt-3 pl-3 text-indigo-600 ">{product.name}</h1>
               <Link 
-                    to='/login'>
-              <h2 className="bg-red-500 w-fit rounded-md ml-72 pt-1 px-1 hover:bg-red-900">Add to Cart</h2>
+                    onClick={addToCart} >
+              <h2 >
+                <MdAddShoppingCart className="text-red-600 text-4xl w-fit rounded-md ml-72 pt-1 px-1 hover:scale-125"/>
+              </h2>
               </Link>
             </div>
+
+            <p className="pt-2 pl-3 text-indigo-600 text-xl">{product.price}</p>
             
           </div>
 
           <div className="mt-6 ml-6 bg-white rounded-md shadow-lg p-4 w-5/5">
             <h2 className="text-xl pt-2 pl-3 text-indigo-600">Product Description</h2>
-            <p className="pl-3">{product.description}</p>
-            <p className="pt-2 pl-3 text-indigo-600 text-xl">{product.price}</p>
+            <p className="pl-3 text-xs">{product.description}</p>
+            
           </div>
 
         </div>
@@ -60,8 +87,6 @@ const ProductPage = () => {
             <p className="bg-indigo-300">555-555-555</p>
           </div>
         </div>
-
-
       </div>
     </>
   )

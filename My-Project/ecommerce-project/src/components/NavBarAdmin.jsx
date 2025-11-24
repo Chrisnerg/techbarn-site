@@ -32,7 +32,7 @@ const NavBarAdmin = () => {
     }
     
   return (
-    <div className="bg-indigo-700 h-30 w-full flex justify-between border-b">
+    <div className="bg-indigo-700 h-30 w-full flex justify-between border-b sticky top-0">
         <div className="pl-2 py-4 flex">
             <NavLink to="/dashboard">
                 <img

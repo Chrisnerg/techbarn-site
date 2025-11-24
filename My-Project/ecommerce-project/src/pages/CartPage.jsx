@@ -14,6 +14,8 @@ const CartPage = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [cartStatus,setCartStatus] = useState(false);
+    const [refresh, setRefresh] = useState(false);
+
 
     useEffect(() => {
         if (!user?.order) return;
@@ -66,6 +68,14 @@ const CartPage = () => {
 
     }
 
+    const renderImage = () => {
+    if (!user?.order || user.order.length === 0) {
+        return "https://www.nicepng.com/png/detail/285-2852098_no-cart-items-found-carrito-de-compras-icono.png";
+    }
+    return null;
+};
+
+
     return (
         <div className='bg-indigo-50'>
             <div className='border mx-auto py-12'>
@@ -83,6 +93,12 @@ const CartPage = () => {
                 )
                 )}
                 
+                <div>
+                    <img 
+                        className="text-center pb-2 mx-auto"
+                        src={renderImage()}
+                    />
+                </div>
 
                 <div className="text-center mb-4">
                     <button
